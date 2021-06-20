@@ -33,16 +33,19 @@ class Substitution
       {
          System.out.println("File doesn't exist");
          X.printStackTrace();
-      }   
-      finally
-      {
-        System.out.println("Hashed");       
-      }
+      } 
    }
-   void Substitute(int F, int S)
+   void Substitute(char choice)
    {
       //Creates HashMap
-      Hash_it(F,S);
+      switch(choice)
+      {
+         case 'e' :Hash_it(0,3); break;
+         case 'd' :Hash_it(3,0); break;
+         default:System.out.println("error");
+      }
+      
+      
       try
       {
          Scanner IReads =  new Scanner(Input);
@@ -85,15 +88,15 @@ class SubstitutionImplementation
       Scanner S = new Scanner(System.in);
       System.out.println("Do you want to \n1.Encrypt\n2.Decrypt");
       int ch = S.nextInt();
-      int a=0,b=3;
+      char choice='e';
       switch(ch)
       {
          case 1:break;
-         case 2:a=3;b=0;break;
+         case 2:choice='d';break;
          default:System.out.println("Wrong input. Encrypting by default");
          
       }      
-      A.Substitute(a,b);
+      A.Substitute(choice);
             
    }
 
